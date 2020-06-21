@@ -1,0 +1,48 @@
+var express = require('express');
+var router = express.Router();
+var mysql = require('mysql');
+var resuk;
+
+
+router.get('/', async(req, res)=> {
+ await getf();
+ 
+ for(let i of resuk)
+ {
+   console.log(i.id+' '+i.name);
+ }
+  res.render('index', { title: 'Express' });
+});
+
+
+function  getf()
+{
+ 
+ return  new Promise((res,rej)=>{
+
+  
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "ahmed",
+      password: "1111",
+      database: "async"
+    });
+    
+
+     con.connect(function (err) {
+       if (err)
+         throw err;
+       con.query("SELECT * FROM ahmed", function (err_1, result, fields) {
+         if (err_1)
+           throw err_1;
+        
+         resuk=result;
+       res(result);
+        });
+     });
+
+    });
+   
+
+}
+module.exports = router;

@@ -11,7 +11,7 @@ router.get('/', async(req, res)=> {
  {
    console.log(i.id+' '+i.name);
  }
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: resuk });
 });
 
 

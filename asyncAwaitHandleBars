@@ -1,0 +1,5 @@
+<ul>
+  {{#each title}}
+    <li>{{this.id}} - {{this.name}}</li>
+  {{/each}}
+</ul>
